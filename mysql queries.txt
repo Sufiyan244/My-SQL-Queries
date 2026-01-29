@@ -1,0 +1,106 @@
+USE school
+CREATE TABLE studentData
+(
+    id int,
+    studentname varchar(20),
+    coursename varchar(25),
+    batchcode varchar(10),
+    phonenumber int,
+    fee int,
+    branch varchar(20)
+)
+
+
+INSERT INTO studentdata
+(id, studentname, coursename, batchcode, phonenumber, fee, branch)
+VALUES (105, 'Faizan', 'DISM', '2024-06E',12356987, 8000, 'FB Area'),
+(106, 'Ayan', 'CPISM', '2024-05F',15356912, 7000, 'Gulshan-e-Iqbal')
+
+SELECT * FROM `studentdata` WHERE coursename = 'CPISM'
+
+
+SELECT * FROM `studentdata` WHERE fee > 7500
+
+
+UPDATE studentdata
+SET batchcode = '2026-04F'
+WHERE id = 103
+
+
+DELETE FROM studentdata WHERE id = 105
+
+
+CREATE TABLE newData (
+id int,
+name varchar(20),
+email varchar(20)
+)
+
+
+
+DROP TABLE newdata
+
+
+CREATE TABLE signup (
+id int PRIMARY KEY AUTO_INCREMENT NOT null,
+fullname varchar(20) not null,
+surname varchar(20) not null,
+date varchar(15) not null,
+gender varchar(15),
+email varchar(25) not null UNIQUE,
+phonenumber varchar(15) UNIQUE,
+PASSWORD varchar(20)
+)
+
+
+ALTER TABLE signup
+ADD COLUMN create_at datetime
+DEFAULT CURRENT_TIMESTAMP
+
+
+CREATE TABLE administrator (
+admin_id int PRIMARY KEY AUTO_INCREMENT,
+admin_username varchar(15) not null,
+admin_email varchar(20) not null UNIQUE,
+admin_PASSWORD varchar(15) not null,
+created_at datetime DEFAULT CURRENT_TIMESTAMP
+)
+
+
+INSERT INTO administrator
+(admin_username, admin_email, admin_PASSWORD)
+VALUES ('Admin', 'admin@gmail.com', SHA2('admin@123', 256))
+
+
+
+===================================
+
+CREATE TABLE users (
+user_id int PRIMARY KEY AUTO_INCREMENT,
+full_name varchar(25) not null,
+user_email varchar(25) not null UNIQUE,
+user_phone varchar(15) not null,
+user_password varchar(20) not null,
+CHECK(CHAR_LENGTH(user_password) <= 10),
+create_at datetime DEFAULT CURRENT_TIMESTAMP
+)
+
+
+INSERT INTO users
+(full_name, user_email, user_phone, user_password)
+VALUES ('Zain', 'zain@gmail.com', '032021127', 'zain@123')
+('Zain Ahmed', 'zainahmed@gmail.com', '032034427', 'abc@123')
+('Bilal', 'bilal@gmail.com', '032021167', 'bilal@123'),
+('Azaan', 'azaan@gmail.com', '032021161', 'azaan@123'),
+('Azaan Ajmal', 'roghani@gmail.com', '032021237', 'ajmal@123'),
+('Sami', 'sami@gmail.com', '032021145', 'sami@123'),
+('Hasan', 'hasan@gmail.com', '032028967', 'hasan@123'),
+('Arham', 'arham@gmail.com', '032421167', 'arham@123'),
+('Shariq', 'shariq@gmail.com', '032021166', 'shariq@123'),
+('Shayan', 'shayan@gmail.com', '032065167', '123@123')	
+
+
+
+
+
+
